@@ -124,7 +124,7 @@ export async function createInvoice(prevState: State, formData: FormData) : Prom
     message: 'Success',
   };
 
-// }
+}
 
 export async function updateInvoice(id: string, formData: FormData) {
   const { customerId, amount, status } = UpdateInvoice.parse({
