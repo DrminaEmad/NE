@@ -7,12 +7,12 @@ export const authConfig = {
    callbacks: {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
-      const isOnDashboard = nextUrl.pathname.startsWith('https://super-duper-happiness-6947q5r7g5v725qjg-3000.app.github.dev/dashboard');
+      const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');   //https://super-duper-happiness-6947q5r7g5v725qjg-3000.app.github.dev
       if (isOnDashboard) {
         if (isLoggedIn) return true;
         return false; // Redirect unauthenticated users to login page
       } else if (isLoggedIn) {
-        return Response.redirect(new URL('https://super-duper-happiness-6947q5r7g5v725qjg-3000.app.github.dev/dashboard', nextUrl));
+        return Response.redirect(new URL('/dashboard', nextUrl)); // https://super-duper-happiness-6947q5r7g5v725qjg-3000.app.github.dev
       }
       return true;
     },
